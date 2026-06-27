@@ -17,12 +17,12 @@ user_id=
 
 [Script]
 ; -------- 签到 --------
-cron "0 8 * * *" script-path=https://raw.githubusercontent.com/你的用户名/仓库名/main/maoyulin-checkin.js, tag=猫羽雫签到
+cron "0 8 * * *" script-path=https://raw.githubusercontent.com/cijann/maoyulin-checkin/main/maoyulin-checkin.js, tag=猫羽雫签到
 
 ; -------- 抓Cookie --------
 ; 打开后，用 Safari 访问 maoyulin.xyz 任意页面即可自动抓取 Cookie
 ; 抓到后建议关掉，避免每次请求都触发
-http-request ^https?://maoyulin\.xyz script-path=https://raw.githubusercontent.com/你的用户名/仓库名/main/maoyulin-cookie.js, requires-body=0, tag=猫羽雫抓Cookie
+http-request ^https?://maoyulin\.xyz script-path=https://raw.githubusercontent.com/cijann/maoyulin-checkin/main/maoyulin-cookie.js, requires-body=0, tag=猫羽雫抓Cookie
 
 [MITM]
 hostname = maoyulin.xyz
