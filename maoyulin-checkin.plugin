@@ -1,0 +1,28 @@
+#!name=猫羽雫工具箱
+#!desc=maoyulin.xyz 每日签到 + Cookie 抓取，两个功能可独立开关
+#!author=WorkBuddy
+#!icon=https://maoyulin.xyz/favicon.ico
+#!system=ios
+
+[Argument]
+; ============ 功能说明 ============
+; 两个功能各有一个脚本，可在 Loon 插件详情里单独开关：
+;   ① 签到 — 每天 8:00 自动签到
+;   ② 抓Cookie — 开启后，用 Safari 打开 maoyulin.xyz，自动抓取 session 并存起来
+;
+; session 手动填写优先于自动抓取。留空则使用抓取到的值。
+; ================================
+session=
+user_id=
+
+[Script]
+; -------- 签到 --------
+cron "0 8 * * *" script-path=https://raw.githubusercontent.com/你的用户名/仓库名/main/maoyulin-checkin.js, tag=猫羽雫签到
+
+; -------- 抓Cookie --------
+; 打开后，用 Safari 访问 maoyulin.xyz 任意页面即可自动抓取 Cookie
+; 抓到后建议关掉，避免每次请求都触发
+http-request ^https?://maoyulin\.xyz script-path=https://raw.githubusercontent.com/你的用户名/仓库名/main/maoyulin-cookie.js, requires-body=0, tag=猫羽雫抓Cookie
+
+[MITM]
+hostname = maoyulin.xyz
